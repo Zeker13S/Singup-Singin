@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Tasks</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+
+    <main class="container text-center">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 ">
+                <h1>Create Task</h1>
+
+                {{error}}
+            
+                <form action="/create/" method="POST" class="card card-body text-center">
+            
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="username">Title</label>
+                        <input type="type" name="title" id="title" class="form-control" placeholder="Write Title Task">
+                    </div>
+                    <div class="mb-3">
+                        <label for="username">Description</label>
+                        <textarea type="type" name="description" id="description" class="form-control" placeholder="Write Description Task"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username">Important</label>
+                        <input type="checkbox" name="important" id="important">
+                        
+                    </div>
+                    <button>Save</button>
+                </form>
+                {% endblock %}
+            </div>
+        </div>
+    </main>
+
+
+
+</body>
+</html>
